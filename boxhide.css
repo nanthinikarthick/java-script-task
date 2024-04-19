@@ -1,0 +1,19 @@
+button{
+    background-color:gray;
+    border-radius: 12px;
+}
+div{
+    border: 5px solid black;
+    height: 500px;
+    background-color: lightgreen;
+    display: none;
+}
+
+
+
+
+button:hover + div{
+    
+    display: block;
+    text-align: center;
+}

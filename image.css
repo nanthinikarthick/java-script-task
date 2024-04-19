@@ -1,0 +1,56 @@
+:root {
+	--dark: #374151;
+	--darker: #1F2937;
+	--darkest: #111827;
+	
+	--pink: #EC4899;
+	--purple: #8B5CF6;
+	--light: #EEE;
+  --gray:var(--light)
+}
+
+
+
+
+body {
+    background: linear-gradient(to left bottom, rgba(240, 139, 7, 0.911), rgb(169, 105, 253), rgb(255, 120, 196), rgba(206, 20, 91, 0.842));
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #FF6100;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 150vh;
+  }
+  .img{
+    font-size: xx-large;
+    /* background-image: linear-gradient(to right, var(--light), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    transition: 0.4s; */
+  }
+
+  .swiper {
+    width: clamp(950px, 50%, 400px);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-left: 200px;
+  }
+
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    border-radius: 3px;
+  }                  
+                

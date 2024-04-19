@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta name ="viewport",content="width=device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JS form validation</title>
+        <style>
+            body{
+                padding: 0px;
+                background: rgb(172, 171, 187);
+                background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(29,106,105,0.8744091386554622) 35%, rgba(0,212,255,1) 100%);
+                 color:rgb(209, 205, 219);
+            }
+            
+            h1
+            {
+                color:#09385a;
+                
+            }
+            .fromdesign
+            {
+                font-size:20px;
+               
+                background-color: hsla(53, 100%, 43%, 0.849);
+            }
+            .formdesign input{
+                border:1px solid #d97605;
+                background-color:lavender;
+                border-radius:4px;
+                font-size:15px;
+                margin:14px;
+            }
+            .fromerror{
+                color:red;
+            }
+            .but
+            {
+                border-radius: 9px;
+                width: 90px;
+                height: 50px;
+                font-size: 25px;
+                margin: 22px 20px;
+                background: #1d8474;
+            }
+
+        </style>
+
+</head>    
+<body>
+    <div>
+        <marquee><big>nanthini</big></marquee>
+        <br>
+        
+<h1>Sign In</h1>
+
+<form  name="myform" >
+    <div class="formdesign" id="name">
+    Name: <input type="text"name="fname" ><span class="fromerror"><b></b></span>
+    
+    </div>
+    <div class="formdesign" id="email">
+    Email: <input type="email"name="femail" ><span class="fromerror"><b></b></span>
+    
+    </div>
+    <div class="formdesign" id="phone">
+    Phone: <input type="phone"name="fphone"><span class="fromerror"><b></b></span>
+    <div class="formdesign" id="pass">
+    Password: <input type="password"name="fpass"><span class="fromerror"><b></b></span>
+    </div>
+    
+    <div class="formdesign" id="cpass">
+    Confirm Password: <input type="text"name="fcpass">
+    <span class="fromerror"><b></b></span>
+    </div>
+    ChooseCourse : <select name="choosecourse" id="user_choosecourse">       
+        <option value="ChooseanyOne">ChooseanyOne</option> 
+        <option value="HTML">HTML</option>
+        <option value="CSS">CSS</option>
+        <option value="JS">JS</option>
+    </select><br>
+
+
+
+    Gendeer:
+                    <input type="radio" name="gender" id="user_male" value="Male">Male
+                    <input type="radio" name="gender" id="user_female" value="Female">Female
+                    <input type="radio" name="gender" id="user_others" value="others">Others
+                    <br>
+                    <span class="fromerror" id="gender"><b></b></span>
+                    <br>
+    <label for="user_qualification">Qualification :</label>
+                    <input type="checkbox" name="user_qual" id="user_qualification" value="Bsc">B.sc
+                    <input type="checkbox" name="user_qual" id="user_qualification-one" value="Msc">M.sc
+                    <input type="checkbox" name="user_qual" id="user_qualification-two" value="Msc">MBA
+                    <input type="checkbox" name="user_qual" id="user_qualification-three" value="others">Others
+                    <br>
+                    <span class="fromerror" id="user-ql"><b></b></span>
+                    <br>
+    <input type="button" class="but" value="submit" onclick="validateForm()">
+</form>
+</div>
+<script>
+    function clearErrors(){
+        errors=document.getElementsByClassName('fromerror');
+        for(let item of errors)
+        {
+            item.innerHTML="error";
+        }
+    }
+function seterror(id,error){
+    
+    element=document.getElementById(id);
+    element.getElementsByClassName('fromerror')[0].innerHTML=error;
+
+}
+function validateForm(){
+    var returnval=true;
+    var name=document.forms['myform']["fname"].value;
+    if(name.length<5){
+        seterror("name","Length of name is too short");
+           returnval=false;
+    }
+    if(name.length==0){
+        seterror("name","Enter your name");
+        returnval=false;
+    }
+    
+    var email=document.forms['myform']["femail"].value;
+    if(email.length>10 && /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/){
+    returnval=false;
+    }
+    else{
+        seterror("email","enter valid email");
+
+    }
+    var phone=document.forms['myform']["fphone"].value;
+    
+    if(phone.length!=10){
+    seterror("phone","enter valid phone number");
+    returnval=false;
+    }
+    var pass=document.forms['myform']["fpass"].value;
+    if(pass.length<6){
+    
+    seterror("pass","Password must be atleast 6 charecters");
+    returnval=false;
+    }
+    var cpass=document.forms['myform']["fcpass"].value;
+    if(cpass!=pass){
+    
+    seterror("cpass","Password and confirm password should be matched");
+    returnval=false;
+    }
+
+    // console.log('dfjjchdsgf', document.forms['myform']["femail"].value)
+
+    var user_qual=document.forms['myform']["user_qual"];
+    console.log("user_qual", user_qual)
+    let condition = 0;
+
+    for(let item of user_qual) {
+        if(item.checked) {
+            condition = 1;
+            break;
+        }
+        else{
+            condition =0;
+        }
+    }
+        if(!condition) {
+            console.log('asdasd')
+            document.getElementById('user-ql').innerHTML= 'please select user qualification'
+            //seterror('user-ql','please select user qualification');
+            
+        } 
+      
+        gender = document.getElementsByName('gender')
+
+        let selectgender;
+        for(const radioButton of gender){
+            if(radioButton.checked){
+                selectgender=radioButton.value;
+                console.log(radioButton.value)
+                break;
+            }
+        }
+            console.log(selectgender);
+            if(selectgender==null){
+                document.getElementById('gender').innerHTML="select your gender";
+            }
+
+            return returnval;
+}
+
+const form = document.querySelector('form');
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+  if (!validateForm()) {
+    alert('Form is valid, submitting...');
+    // submit the form via AJAX or other method here
+  } else {
+    alert('Form is invalid, please check errors and try again.');
+  }
+});
+
+
+
+
+</script
+</body>
+</html>

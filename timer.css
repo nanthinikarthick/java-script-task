@@ -1,0 +1,54 @@
+body{
+  
+    background: linear-gradient(to left bottom, rgba(2, 56, 59, 0.911), rgb(181, 105, 253), rgb(86, 51, 80), rgba(50, 93, 74, 0.842));
+    height: 100vh;
+   
+}
+.num_form h1{
+    text-align: center;
+    color: aquamarine;
+    font-size: x-large;
+    padding-top: 100px;
+    
+}
+
+
+
+.number-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
+    max-width: 200px;
+    border: 5px solid #0e0587;
+    border-radius: 4px;
+    padding: 10px;
+    box-sizing: content-box;
+    margin-left: 600px;
+   
+}
+
+.number-input-field {
+    width: 100%;
+    text-align: center;
+    border: none;
+    font-size: 16px;
+    outline: none;
+}
+
+.number-btn {
+    
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+}
+
+.number-up {
+    color: #FF2468;
+}
+
+.number-down {
+    color: #666;
+}

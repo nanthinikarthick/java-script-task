@@ -1,0 +1,50 @@
+body{
+  background: radial-gradient(circle, rgb(212, 211, 123) 0%, rgb(231, 160, 237) 100%);
+
+}
+
+
+.accordion {
+    width: 450px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 4px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-top: 200px;
+  }
+  
+  .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    background: linear-gradient(to left bottom, #c1edf0e8, rgb(206, 166, 244), rgb(236, 124, 216), rgba(154, 230, 198, 0.842));
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #54a0ff;
+    color: #f3f3f3;
+    cursor: pointer;
+  }
+  
+  .accordion-header.active {
+    background-color: #1070b1;
+  }
+  .accordion-header.active i {
+    transform: rotate(180deg);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .accordion-body {
+    padding: 0 1rem;
+    background-color: #f3f3f3;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    background: linear-gradient(to left bottom, rgba(187, 223, 89, 0.911), rgb(228, 233, 76), #d45c9e, #33d3d9d7);
+  }
+  
+  .accordion-body.active {
+    max-height: 10rem;
+    padding: 1rem;
+  }
